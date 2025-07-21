@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MP3選択＆周波数入力UI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="main-header">
+    <h2><a href="https://kinkiknights.com" target="_blank" style="color:inherit;text-decoration:none;">ダミヤン音声パターン生成ツール</a></h2>
+    <p class="powered">powerd by KINKI KNIGHTS</p>
+  </header>
+  <div class="description-container" style="max-width:800px;margin:32px auto 0 auto;padding:24px 32px 18px 32px;background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(33,33,33,0.13);color:#444;font-size:1em;line-height:1.7;">
+    <h3 style="margin-top:0;color:#1976d2;font-size:1.15em;">ツールの説明</h3>
+    <ul style="padding-left:1.2em;margin:0;">
+      <li>このツールは、レスコン2025のルールに準拠したダミヤン音声パターンを生成するツールです。</li>
+      <li><span style="color:#d32f2f;font-weight:bold;">利用に当たってはページ下部の規約・免責事項をご確認ください</span></li>
+      <li><span style="color:#d32f2f;font-weight:bold;">このツールはKINKI KNIGHTSのレスコンメンバー有志によって作成されました。<br>レスキューロボットコンテスト実行委員会公式のツールではありませんのでご注意ください。</span></li>
+      <li>KINKI KNIGHTSは高校生から社会人までが揃う自由な技術者集団です。<br><a href="https://x.com/kinkiknights" target="_blank" style="color:#1976d2;text-decoration:underline;">Xをフォロー</a>して活動を見てみましょう！</li>
+    </ul>
+  </div>
+  <div class="container">
+    <h1>波形生成</h1>
+    <p>周波数とパターンを設定し、「生成」を押してください。
+        <br>1~3はストップビットのため入力できません
+        <br>MP3を設定しない場合、単体音が生成されます。
+        <br>背景音のMP3を設定すると、合成波形が生成されます。
+    </p>
+    <div class="input-group">
+      <label for="frequency">周波数(Hz):</label>
+      <input type="number" id="frequency" min="1" max="20000" step="1" placeholder="例: 440">
+    </div>
+    <div class="button-grid">
+      <button class="square-btn fixed-gray" id="btn1" disabled>1</button>
+      <button class="square-btn fixed-gray" id="btn2" disabled>2</button>
+      <button class="square-btn fixed-gray" id="btn3" disabled>3</button>
+      <button class="square-btn toggle-gray" id="btn4">4</button>
+      <button class="square-btn toggle-gray" id="btn5">5</button>
+      <button class="square-btn toggle-gray" id="btn6">6</button>
+      <button class="square-btn toggle-gray" id="btn7">7</button>
+      <button class="square-btn toggle-gray" id="btn8">8</button>
+      <button class="square-btn toggle-gray" id="btn9">9</button>
+      <button class="square-btn toggle-gray" id="btn10">10</button>
+      <button class="square-btn toggle-gray" id="btn11">11</button>
+      <button class="square-btn toggle-gray" id="btn12">12</button>
+    </div>
+    <div class="input-group">
+      <label for="mp3file">背景音(mp3)選択:</label>
+      <input type="file" id="mp3file" accept="audio/mp3">
+    </div>
+    <div class="synth-section" style="margin-top:32px;">
+      <label for="mix-ratio">背景音・ダミヤンパターン比率</label>
+      <input type="range" id="mix-ratio" min="0" max="100" value="50" style="width:60%;margin:0 10px;vertical-align:middle;">
+      <span id="mix-ratio-value">50</span>%
+      <button id="mix-btn" class="generate-btn" style="margin-top:10px;">生成</button>
+    </div>
+    <audio id="audio-player" controls style="margin-top:20px;width:100%" loop></audio>
+  </div>
+  <div class="disclaimer-container" style="max-width:800px;margin:40px auto 0 auto;padding:24px 32px 18px 32px;background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(33,33,33,0.13);color:#444;font-size:0.98em;line-height:1.7;">
+    <h3 style="margin-top:0;color:#1976d2;font-size:1.15em;">規約・免責事項</h3>
+    <ul style="padding-left:1.2em;margin:0;">
+      <li>本ツールによって生成された波形データの正確性・有用性・安全性について、いかなる保証も行いません。</li>
+      <li>本ツールで生成されたデータには著作権は発生しません。自由にご利用いただけますが、第三者の権利を侵害しないようご注意ください。</li>
+      <li>本ツールの利用により生じたいかなる損害・トラブルについても、作成者は一切の責任を負いません。</li>
+      <li>アップロードされた音声ファイルや生成されたデータはサーバーに保存されませんが、セキュリティやプライバシーには十分ご注意ください。</li>
+      <li>本ツールは予告なく仕様変更・公開停止となる場合があります。</li>
+    </ul>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <script src="script.js"></script>
+</body>
+</html> 
